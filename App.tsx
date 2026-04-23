@@ -124,7 +124,7 @@ const App: React.FC = () => {
         className={`w-full flex items-center gap-3 p-4 rounded-2xl text-sm font-black transition-all duration-200 border-l-4 ${
           isActive 
           ? `${activeClass} border-white/20 text-white shadow-2xl translate-x-1` 
-          : 'bg-transparent border-l-transparent text-slate-500 hover:bg-slate-800 hover:text-slate-300'
+          : 'bg-transparent border-l-transparent text-white hover:bg-pink-800 hover:text-white'
         }`}
       >
         <Icon className={`w-5 h-5 transition-transform ${isActive ? 'scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]' : ''}`} /> 
@@ -134,64 +134,64 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex h-[100dvh] bg-slate-950 text-slate-100 overflow-hidden font-sans">
+    <div className="flex h-[100dvh] bg-pink-950 text-white overflow-hidden font-sans">
       <PatientFormModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} onSubmit={handleFormSubmit} />
       <WuXingVisualizerModal isOpen={isVisualizerOpen} onClose={() => setIsVisualizerOpen(false)} />
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-72 bg-slate-900 border-r border-slate-800 transform transition-transform duration-300 md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}>
-        <div className="p-8 flex justify-between items-center border-b border-slate-800">
+      <div className={`fixed inset-y-0 left-0 z-50 w-72 bg-pink-900 border-r border-pink-400 transform transition-transform duration-300 md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}>
+        <div className="p-8 flex justify-between items-center border-b border-pink-400">
            <h1 className="text-2xl font-black text-tcm-primary flex items-center gap-2 tracking-tighter"><Activity className="w-8 h-8" /> TCM PRO</h1>
-           <button onClick={() => setIsSidebarOpen(false)} className="md:hidden text-slate-400 hover:text-white"><X /></button>
+           <button onClick={() => setIsSidebarOpen(false)} className="md:hidden text-white hover:text-white"><X /></button>
         </div>
         <nav className="flex-1 p-4 space-y-3 overflow-y-auto scrollbar-hide">
-           <SidebarTab id="chat" label={appLanguage === Language.ENGLISH ? "Diagnostic Chat" : "Chat Diagnosa"} icon={MessageSquare} activeClass="bg-indigo-600 shadow-indigo-900/60" />
-           <SidebarTab id="diagnosis" label="CDSS Auto-Rx" icon={Stethoscope} activeClass="bg-emerald-600 shadow-emerald-900/60" />
-           <SidebarTab id="atlas" label="Atlas Sindrom" icon={LayoutGrid} activeClass="bg-amber-600 shadow-amber-900/60" />
-           <SidebarTab id="wuxing" label="Wu Xing Master" icon={Compass} activeClass="bg-rose-600 shadow-rose-900/60" />
-           <SidebarTab id="archive" label={appLanguage === Language.ENGLISH ? "Patient Archive" : "Arsip Pasien"} icon={Archive} activeClass="bg-slate-700 shadow-slate-950" />
+           <SidebarTab id="chat" label={appLanguage === Language.ENGLISH ? "Diagnostic Chat" : "Chat Diagnosa"} icon={MessageSquare} activeClass="bg-fuchsia-900 shadow-fuchsia-200/60 !text-fuchsia-600" />
+           <SidebarTab id="diagnosis" label="CDSS Auto-Rx" icon={Stethoscope} activeClass="bg-pink-800 shadow-pink-200/60 !text-pink-600" />
+           <SidebarTab id="atlas" label="Atlas Sindrom" icon={LayoutGrid} activeClass="bg-rose-900 shadow-rose-200/60 !text-rose-600" />
+           <SidebarTab id="wuxing" label="Wu Xing Master" icon={Compass} activeClass="bg-pink-800 shadow-pink-200/60 !text-pink-700" />
+           <SidebarTab id="archive" label={appLanguage === Language.ENGLISH ? "Patient Archive" : "Arsip Pasien"} icon={Archive} activeClass="bg-pink-700 shadow-slate-300 !text-white" />
         </nav>
-        <div className="p-6 pb-24 md:pb-6 border-t border-slate-800">
-           <button onClick={() => setIsFormOpen(true)} className="w-full py-5 bg-gradient-to-br from-emerald-400 to-tcm-secondary text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-2xl shadow-emerald-900/40 active:scale-95 flex items-center justify-center gap-2">
+        <div className="p-6 pb-24 md:pb-6 border-t border-pink-400">
+           <button onClick={() => setIsFormOpen(true)} className="w-full py-5 bg-gradient-to-br from-pink-400 to-tcm-secondary text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-xl shadow-pink-200/40 active:scale-95 flex items-center justify-center gap-2">
              <ClipboardList className="w-4 h-4" /> {appLanguage === Language.ENGLISH ? "New Patient Intake" : "Input Pasien Baru"}
            </button>
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col h-full bg-slate-950 overflow-hidden">
+      <div className="flex-1 flex flex-col h-full bg-pink-950 overflow-hidden">
         {/* Top Header with Language Toggle */}
-        <header className="p-4 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center backdrop-blur-md">
+        <header className="p-4 bg-pink-900/80 border-b border-pink-400 flex justify-between items-center backdrop-blur-md">
            <div className="flex items-center gap-4">
-             <button onClick={() => setIsSidebarOpen(true)} className="md:hidden p-2 bg-slate-800 rounded-lg text-white"><Menu className="w-5 h-5" /></button>
-             <div className="hidden md:flex items-center gap-2 px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">System Online</span>
+             <button onClick={() => setIsSidebarOpen(true)} className="md:hidden p-2 bg-pink-800 rounded-lg text-white"><Menu className="w-5 h-5" /></button>
+             <div className="hidden md:flex items-center gap-2 px-3 py-1 bg-pink-800 rounded-full border border-pink-400">
+                <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-white">System Online</span>
              </div>
            </div>
            
            <div className="flex items-center gap-4">
               <button 
                 onClick={toggleLanguage}
-                className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition-all active:scale-95 group shadow-lg"
+                className="flex items-center gap-2 px-4 py-2 bg-pink-800 hover:bg-pink-700 rounded-xl border border-pink-400 transition-all active:scale-95 group shadow-sm"
               >
                 <Globe className="w-4 h-4 text-tcm-primary group-hover:rotate-12 transition-transform" />
-                <span className="text-xs font-black uppercase tracking-tighter">
+                <span className="text-xs font-black uppercase tracking-tighter text-white">
                   {appLanguage === Language.ENGLISH ? "EN" : "ID"}
                 </span>
               </button>
-              <div className="w-9 h-9 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full border border-slate-600 flex items-center justify-center shadow-inner">
-                 <User className="w-5 h-5 text-slate-400" />
+              <div className="w-9 h-9 bg-gradient-to-br from-slate-100 to-slate-200 rounded-full border border-pink-400 flex items-center justify-center shadow-inner">
+                 <User className="w-5 h-5 text-white" />
               </div>
            </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.05),transparent)]">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide bg-[radial-gradient(circle_at_top_right,rgba(236,72,153,0.05),transparent)]">
           {activePanel === 'chat' && (
             <div className="max-w-4xl mx-auto space-y-6 pb-20">
               {messages.map(msg => (
                 <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}>
                   <div className="max-w-[95%] md:max-w-[85%]">
-                    <div className={`p-5 rounded-3xl text-sm leading-relaxed shadow-lg ${msg.role === 'user' ? 'bg-indigo-600 text-white rounded-tr-none' : 'bg-slate-900 border border-slate-800 text-slate-200 rounded-tl-none'}`}>
+                    <div className={`p-5 rounded-3xl text-sm leading-relaxed shadow-sm border ${msg.role === 'user' ? 'bg-fuchsia-600 text-white rounded-tr-none border-fuchsia-700' : 'bg-pink-900 border-pink-400 text-white rounded-tl-none'}`}>
                       {msg.text}
                     </div>
                     {msg.tcmResult && (
@@ -207,9 +207,9 @@ const App: React.FC = () => {
               ))}
               {isLoading && (
                 <div className="flex justify-start animate-pulse">
-                  <div className="bg-slate-900 border border-slate-800 p-4 rounded-3xl rounded-tl-none flex items-center gap-3">
+                  <div className="bg-pink-900 border border-pink-400 p-4 rounded-3xl rounded-tl-none flex items-center gap-3">
                     <Loader2 className="w-4 h-4 text-tcm-primary animate-spin" />
-                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    <span className="text-xs font-bold text-white uppercase tracking-widest">
                       {appLanguage === Language.ENGLISH ? "EXPERT IS ANALYZING..." : "PAKAR SEDANG MENGANALISIS..."}
                     </span>
                   </div>
@@ -242,19 +242,19 @@ const App: React.FC = () => {
         </main>
 
         {activePanel === 'chat' && (
-          <div className="p-4 md:p-6 bg-slate-900/80 backdrop-blur-xl border-t border-slate-800">
+          <div className="p-4 md:p-6 bg-pink-900/80 backdrop-blur-xl border-t border-pink-400">
             <div className="max-w-4xl mx-auto flex gap-3">
               <input 
                 value={inputText} 
                 onChange={e => setInputText(e.target.value)} 
                 onKeyDown={e => e.key === 'Enter' && handleSendMessage()} 
                 placeholder={appLanguage === Language.ENGLISH ? "Enter patient complaints or TCM questions..." : "Masukkan keluhan pasien atau pertanyaan TCM..."} 
-                className="flex-1 bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4 outline-none focus:border-tcm-primary transition-all text-sm text-white shadow-inner" 
+                className="flex-1 bg-pink-950 border border-pink-400 rounded-2xl px-6 py-4 outline-none focus:border-tcm-primary focus:bg-pink-900 transition-all text-sm text-white shadow-inner" 
               />
               <button 
                 onClick={() => handleSendMessage()} 
                 disabled={isLoading || !inputText.trim()}
-                className="p-4 bg-tcm-primary text-white rounded-2xl hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-emerald-900/30 disabled:opacity-50 disabled:grayscale"
+                className="p-4 bg-tcm-primary text-white rounded-2xl hover:brightness-110 active:scale-95 transition-all shadow-md shadow-pink-200 disabled:opacity-50 disabled:grayscale"
               >
                 <Send className="w-5 h-5" />
               </button>

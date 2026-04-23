@@ -111,7 +111,7 @@ const BodyMapSekarangJadi: React.FC<Props> = ({ points = [] }) => {
   }, [points]);
 
   return (
-    <div className="w-full h-full flex items-center justify-center bg-slate-900 rounded-lg relative">
+    <div className="w-full h-full flex items-center justify-center bg-pink-900 rounded-lg relative">
         <svg viewBox="0 0 300 400" className="w-full h-full max-h-[500px]" preserveAspectRatio="xMidYMid meet">
             {/* DEFS */}
             <defs>
@@ -165,7 +165,7 @@ const BodyMapSekarangJadi: React.FC<Props> = ({ points = [] }) => {
                             fill="#f1f5f9" 
                             fontSize="8" 
                             fontWeight="bold"
-                            className="drop-shadow-md bg-slate-900"
+                            className="drop-shadow-md bg-pink-900"
                         >
                             {pt.code}
                         </text>

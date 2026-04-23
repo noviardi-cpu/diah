@@ -147,9 +147,9 @@ export const YinYangTheoryWindow: React.FC = () => {
   });
 
   return (
-    <div className="flex flex-col md:flex-row h-full bg-slate-950 text-slate-100 animate-fade-in print:bg-white print:text-black">
+    <div className="flex flex-col md:flex-row h-full bg-pink-950 text-white animate-fade-in print:bg-pink-900 print:text-pink-100">
       {/* LEFT: THEORY CARDS */}
-      <aside className="w-full md:w-80 border-r border-slate-800 p-4 overflow-y-auto bg-slate-900/90 print:hidden">
+      <aside className="w-full md:w-80 border-r border-pink-400 p-4 overflow-y-auto bg-pink-900/90 print:hidden">
         <h2 className="text-lg font-bold mb-3 flex items-center gap-2 text-tcm-accent">
             Yin–Yang Theory
         </h2>
@@ -164,11 +164,11 @@ export const YinYangTheoryWindow: React.FC = () => {
                 className={`w-full text-left px-3 py-2 rounded-xl border text-sm transition
                   ${active
                     ? "bg-indigo-900/40 border-indigo-500 text-indigo-100"
-                    : "bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800"}`}
+                    : "bg-pink-900 border-pink-400 text-white hover:bg-pink-800"}`}
               >
                 <div className="font-semibold">{card.title}</div>
                 {card.subtitle && (
-                  <div className="text-[11px] text-slate-400 mt-0.5">
+                  <div className="text-[11px] text-white mt-0.5">
                     {card.subtitle}
                   </div>
                 )}
@@ -181,22 +181,22 @@ export const YinYangTheoryWindow: React.FC = () => {
       {/* RIGHT: DETAIL + MATRIX SINDROM */}
       <main className="flex-1 flex flex-col h-full overflow-hidden">
         {/* TEORI DETAIL */}
-        <div className="border-b border-slate-800 p-4 bg-slate-900/60 print:bg-white print:text-black print:border-black">
+        <div className="border-b border-pink-400 p-4 bg-pink-900/60 print:bg-pink-900 print:text-pink-100 print:border-black">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <h3 className="text-xl font-bold mb-1 print:text-black">{theoryCard.title}</h3>
+              <h3 className="text-xl font-bold mb-1 print:text-pink-100">{theoryCard.title}</h3>
               {theoryCard.subtitle && (
-                <p className="text-sm text-slate-400 print:text-gray-600">{theoryCard.subtitle}</p>
+                <p className="text-sm text-white print:text-gray-600">{theoryCard.subtitle}</p>
               )}
             </div>
 
             {/* axis legend kecil */}
             {theoryCard.axis === "yin_yang" && (
               <div className="flex items-center gap-3 text-xs print:hidden">
-                <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-slate-800 border border-slate-700">
+                <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-pink-800 border border-pink-400">
                   <Moon className="w-3 h-3 text-sky-300" /> Yin
                 </span>
-                <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-slate-800 border border-slate-700">
+                <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-pink-800 border border-pink-400">
                   <Sun className="w-3 h-3 text-amber-300" /> Yang
                 </span>
               </div>
@@ -205,7 +205,7 @@ export const YinYangTheoryWindow: React.FC = () => {
 
           <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="md:col-span-2">
-              <ul className="list-disc list-inside text-sm space-y-1 text-slate-200 print:text-black">
+              <ul className="list-disc list-inside text-sm space-y-1 text-white print:text-pink-100">
                 {theoryCard.keyIdeas.map((k) => (
                   <li key={k}>{k}</li>
                 ))}
@@ -213,17 +213,17 @@ export const YinYangTheoryWindow: React.FC = () => {
             </div>
 
             {theoryCard.subtopics && (
-              <div className="text-xs text-slate-300 space-y-2 max-h-40 overflow-auto border border-slate-800 rounded-xl p-2 bg-slate-900 print:bg-white print:text-black print:border-black print:h-auto print:max-h-none">
+              <div className="text-xs text-white space-y-2 max-h-40 overflow-auto border border-pink-400 rounded-xl p-2 bg-pink-900 print:bg-pink-900 print:text-pink-100 print:border-black print:h-auto print:max-h-none">
                 {theoryCard.subtopics.map(sub => (
-                  <div key={sub.id} className="border-b last:border-0 border-slate-800 pb-1 mb-1 last:pb-0 last:mb-0 print:border-gray-300">
-                    <div className="font-semibold text-slate-100 mb-0.5 print:text-black">
+                  <div key={sub.id} className="border-b last:border-0 border-pink-400 pb-1 mb-1 last:pb-0 last:mb-0 print:border-gray-300">
+                    <div className="font-semibold text-white mb-0.5 print:text-pink-100">
                       {sub.title}
                     </div>
-                    <div className="text-[11px] text-slate-400 mb-0.5 print:text-gray-700">
+                    <div className="text-[11px] text-white mb-0.5 print:text-gray-700">
                       {sub.body}
                     </div>
                     {sub.bullets && (
-                      <ul className="list-disc list-inside space-y-0.5 print:text-black">
+                      <ul className="list-disc list-inside space-y-0.5 print:text-pink-100">
                         {sub.bullets.map(b => (
                           <li key={b}>{b}</li>
                         ))}
@@ -241,7 +241,7 @@ export const YinYangTheoryWindow: React.FC = () => {
           <div className="flex flex-wrap gap-3 items-center mb-2 text-xs">
             {/* Filter Yin/Yang */}
             <div className="flex items-center gap-1">
-              <span className="text-slate-500 mr-1">Yin/Yang:</span>
+              <span className="text-white mr-1">Yin/Yang:</span>
               {(["all", "yin", "yang", "mixed"] as const).map(v => (
                 <button
                   key={v}
@@ -249,7 +249,7 @@ export const YinYangTheoryWindow: React.FC = () => {
                   className={`px-2 py-1 rounded-full border transition
                     ${filterAxis === v
                       ? "bg-indigo-900/50 border-indigo-500 text-indigo-100"
-                      : "bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800"}`}
+                      : "bg-pink-900 border-pink-400 text-white hover:bg-pink-800"}`}
                 >
                   {v === "all" ? "Semua" : axisLabel[v]}
                 </button>
@@ -258,7 +258,7 @@ export const YinYangTheoryWindow: React.FC = () => {
 
             {/* Filter Hot/Cold */}
             <div className="flex items-center gap-1">
-              <span className="text-slate-500 mr-1">Cold/Heat:</span>
+              <span className="text-white mr-1">Cold/Heat:</span>
               {(["all", "cold", "heat", "mixed"] as const).map(v => (
                 <button
                   key={v}
@@ -266,7 +266,7 @@ export const YinYangTheoryWindow: React.FC = () => {
                   className={`px-2 py-1 rounded-full border transition
                     ${filterHot === v
                       ? "bg-amber-900/40 border-amber-500 text-amber-100"
-                      : "bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800"}`}
+                      : "bg-pink-900 border-pink-400 text-white hover:bg-pink-800"}`}
                 >
                   {v === "all"
                     ? "Semua"
@@ -281,11 +281,11 @@ export const YinYangTheoryWindow: React.FC = () => {
 
             {/* Organ filter */}
             <div className="flex items-center gap-1">
-              <span className="text-slate-500 mr-1">Organ:</span>
+              <span className="text-white mr-1">Organ:</span>
               <select
                 value={organFilter}
                 onChange={(e) => setOrganFilter(e.target.value as any)}
-                className="bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-indigo-500"
+                className="bg-pink-900 border border-pink-400 rounded-lg px-2 py-1 text-xs outline-none focus:border-indigo-500"
               >
                 {organOptions.map(o => (
                   <option key={o} value={o}>
@@ -301,7 +301,7 @@ export const YinYangTheoryWindow: React.FC = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Cari sindrom..."
-                className="bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-xs w-full md:w-40 outline-none focus:border-indigo-500"
+                className="bg-pink-900 border border-pink-400 rounded-lg px-2 py-1 text-xs w-full md:w-40 outline-none focus:border-indigo-500"
               />
             </div>
           </div>
@@ -311,18 +311,18 @@ export const YinYangTheoryWindow: React.FC = () => {
             {filtered.map(sy => (
               <div
                 key={sy.id}
-                className="border border-slate-800 rounded-xl p-3 bg-slate-900/70 text-xs flex flex-col gap-1 hover:border-slate-600 transition-colors"
+                className="border border-pink-400 rounded-xl p-3 bg-pink-900/70 text-xs flex flex-col gap-1 hover:border-pink-400 transition-colors"
               >
-                <div className="font-semibold text-slate-100">
+                <div className="font-semibold text-white">
                   {sy.name_id}
                 </div>
-                <div className="text-[11px] text-slate-400">
+                <div className="text-[11px] text-white">
                   {sy.name_en}
                 </div>
 
                 <div className="flex flex-wrap gap-1 mt-1">
                   {/* Yin/Yang */}
-                  <span className="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 flex items-center gap-1">
+                  <span className="px-2 py-0.5 rounded-full bg-pink-800 border border-pink-400 flex items-center gap-1">
                     {sy.axisYinYang === "yin" && (
                       <Moon className="w-3 h-3 text-sky-300" />
                     )}
@@ -336,7 +336,7 @@ export const YinYangTheoryWindow: React.FC = () => {
                   </span>
 
                   {/* Cold/Heat */}
-                  <span className="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 flex items-center gap-1">
+                  <span className="px-2 py-0.5 rounded-full bg-pink-800 border border-pink-400 flex items-center gap-1">
                     {sy.axisHotCold === "cold" && (
                       <Snowflake className="w-3 h-3 text-sky-300" />
                     )}
@@ -347,19 +347,19 @@ export const YinYangTheoryWindow: React.FC = () => {
                   </span>
 
                   {/* Def/Ex */}
-                  <span className="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 flex items-center gap-1">
+                  <span className="px-2 py-0.5 rounded-full bg-pink-800 border border-pink-400 flex items-center gap-1">
                     <ArrowRightLeft className="w-3 h-3 text-emerald-300" />
                     {defExLabel[sy.axisDefEx]}
                   </span>
 
                   {/* Int/Ext */}
-                  <span className="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700">
+                  <span className="px-2 py-0.5 rounded-full bg-pink-800 border border-pink-400">
                     {intExtLabel[sy.axisIntExt]}
                   </span>
                 </div>
 
                 {sy.primary_organs?.length && (
-                  <div className="text-[11px] text-slate-400 mt-1">
+                  <div className="text-[11px] text-white mt-1">
                     Organ: {sy.primary_organs.join(", ")}
                   </div>
                 )}
@@ -367,7 +367,7 @@ export const YinYangTheoryWindow: React.FC = () => {
             ))}
 
             {filtered.length === 0 && (
-              <div className="text-slate-500 text-sm col-span-full text-center py-8">
+              <div className="text-white text-sm col-span-full text-center py-8">
                 Tidak ada sindrom yang cocok dengan filter.
               </div>
             )}

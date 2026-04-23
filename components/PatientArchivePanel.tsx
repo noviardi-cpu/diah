@@ -85,27 +85,27 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
   }, [allVisits]);
 
   return (
-    <div className="h-full flex flex-col md:flex-row bg-slate-950 text-slate-100 overflow-hidden animate-fade-in">
+    <div className="h-full flex flex-col md:flex-row bg-pink-950 text-white overflow-hidden animate-fade-in">
       {/* Sidebar Daftar Pasien */}
-      <div className="w-full md:w-80 border-r border-slate-800 bg-slate-900 flex flex-col shrink-0">
-        <div className="p-4 border-b border-slate-800 flex justify-between items-center">
+      <div className="w-full md:w-80 border-r border-pink-400 bg-pink-900 flex flex-col shrink-0">
+        <div className="p-4 border-b border-pink-400 flex justify-between items-center">
            <h2 className="text-xl font-bold text-tcm-primary">Arsip Pasien</h2>
            <button 
              onClick={loadPatients}
-             className={`p-2 hover:bg-slate-800 rounded-lg transition-all ${isRefreshing ? 'animate-spin text-tcm-primary' : 'text-slate-500'}`}
+             className={`p-2 hover:bg-pink-800 rounded-lg transition-all ${isRefreshing ? 'animate-spin text-tcm-primary' : 'text-white'}`}
            >
              <RefreshCw className="w-4 h-4" />
            </button>
         </div>
-        <div className="p-4 border-b border-slate-800">
+        <div className="p-4 border-b border-pink-400">
            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white" />
               <input 
                 type="text" 
                 placeholder="Cari nama / penyakit..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-700 rounded-xl py-2 pl-9 pr-3 text-sm focus:border-tcm-primary outline-none"
+                className="w-full bg-pink-950 border border-pink-400 rounded-xl py-2 pl-9 pr-3 text-sm focus:border-tcm-primary outline-none"
               />
            </div>
         </div>
@@ -117,23 +117,23 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
                className={`w-full text-left p-3 rounded-xl transition-all border ${
                  selectedPatient?.id === p.id 
                  ? 'bg-tcm-primary/20 border-tcm-primary shadow-lg' 
-                 : 'bg-slate-800/40 border-transparent hover:bg-slate-800'
+                 : 'bg-pink-800/40 border-transparent hover:bg-pink-800'
                }`}
              >
                 <div className="flex justify-between items-start">
-                   <span className="font-bold text-slate-200">{p.patientName || 'Anonim'}</span>
-                   <span className="text-[10px] text-slate-500">{new Date(p.timestamp).toLocaleDateString()}</span>
+                   <span className="font-bold text-white">{p.patientName || 'Anonim'}</span>
+                   <span className="text-[10px] text-white">{new Date(p.timestamp).toLocaleDateString()}</span>
                 </div>
                 {p.biomedicalDiagnosis && (
                    <p className="text-[10px] text-indigo-400 font-bold uppercase truncate">{p.biomedicalDiagnosis}</p>
                 )}
-                <p className="text-xs text-slate-400 mt-1 line-clamp-1 italic">"{p.complaint}"</p>
+                <p className="text-xs text-white mt-1 line-clamp-1 italic">"{p.complaint}"</p>
                 <div className="flex justify-between items-center mt-2">
-                   <span className="text-[10px] px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-tcm-primary uppercase font-bold tracking-tighter">
+                   <span className="text-[10px] px-2 py-0.5 rounded bg-pink-900 border border-pink-400 text-tcm-primary uppercase font-bold tracking-tighter">
                       {p.diagnosis.patternId.replace(/_/g, ' ')}
                    </span>
                    <Trash2 
-                    className="w-3.5 h-3.5 text-slate-600 hover:text-rose-500 cursor-pointer transition-colors" 
+                    className="w-3.5 h-3.5 text-white hover:text-rose-500 cursor-pointer transition-colors" 
                     onClick={(e) => handleDelete(e, p.id)}
                    />
                 </div>
@@ -141,27 +141,27 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
            ))}
            {filteredPatients.length === 0 && (
              <div className="text-center py-20 px-6">
-                <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 opacity-20">
+                <div className="w-16 h-16 bg-pink-800 rounded-full flex items-center justify-center mx-auto mb-4 opacity-20">
                    <Activity className="w-8 h-8" />
                 </div>
-                <p className="text-slate-600 text-sm italic">Belum ada pasien tersimpan.</p>
-                <p className="text-[10px] text-slate-700 mt-2 uppercase">Gunakan tombol Disket pada hasil diagnosa untuk menyimpan.</p>
+                <p className="text-white text-sm italic">Belum ada pasien tersimpan.</p>
+                <p className="text-[10px] text-white mt-2 uppercase">Gunakan tombol Disket pada hasil diagnosa untuk menyimpan.</p>
              </div>
            )}
         </div>
       </div>
 
       {/* Detail Pasien */}
-      <div className="flex-1 overflow-y-auto bg-slate-950 p-6 md:p-10 relative scrollbar-hide">
+      <div className="flex-1 overflow-y-auto bg-pink-950 p-6 md:p-10 relative scrollbar-hide">
          {!selectedPatient ? (
-           <div className="h-full flex flex-col items-center justify-center text-slate-600">
+           <div className="h-full flex flex-col items-center justify-center text-white">
               <User className="w-16 h-16 mb-4 opacity-10" />
               <p className="font-bold uppercase tracking-widest text-xs">Pilih pasien untuk melihat rekam medis</p>
            </div>
          ) : (
            <div className="max-w-4xl mx-auto space-y-8 animate-slide-in-right">
               {/* Patient Profile Header */}
-              <div className="flex flex-col md:flex-row justify-between items-start border-b border-slate-800 pb-6 gap-4">
+              <div className="flex flex-col md:flex-row justify-between items-start border-b border-pink-400 pb-6 gap-4">
                  <div>
                     <div className="flex items-center gap-3 mb-1">
                       <h1 className="text-3xl font-black text-white">{selectedPatient.patientName || 'Anonim'}</h1>
@@ -169,7 +169,7 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
                          {allVisits.length} Visits
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-4 mt-2 text-sm text-slate-400">
+                    <div className="flex flex-wrap gap-4 mt-2 text-sm text-white">
                        <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {new Date(selectedPatient.timestamp).toLocaleString()}</span>
                        <span>Umur: {selectedPatient.age} th</span>
                        <span className="uppercase font-semibold text-tcm-primary">{selectedPatient.sex}</span>
@@ -191,28 +191,28 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
                     >
                         <BrainCircuit className="w-4 h-4" /> Muat ke CDSS
                     </button>
-                    <button onClick={() => setSelectedPatient(null)} className="md:hidden p-2 bg-slate-800 rounded-full"><X className="w-6 h-6"/></button>
+                    <button onClick={() => setSelectedPatient(null)} className="md:hidden p-2 bg-pink-800 rounded-full"><X className="w-6 h-6"/></button>
                  </div>
               </div>
 
               {/* Medical Context Section */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                 <div className="bg-pink-900 border border-pink-400 p-6 rounded-2xl">
                     <h3 className="text-sm font-black text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                        <History className="w-4 h-4" /> Past Medical History
                     </h3>
-                    <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 min-h-[80px]">
-                       <p className="text-xs text-slate-300 leading-relaxed">
+                    <div className="bg-pink-950 p-4 rounded-xl border border-pink-400 min-h-[80px]">
+                       <p className="text-xs text-white leading-relaxed">
                           {selectedPatient.medicalHistory || "Tidak ada catatan riwayat medis."}
                        </p>
                     </div>
                  </div>
-                 <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                 <div className="bg-pink-900 border border-pink-400 p-6 rounded-2xl">
                     <h3 className="text-sm font-black text-rose-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                        <ShieldAlert className="w-4 h-4" /> Allergies / Notes
                     </h3>
-                    <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 min-h-[80px]">
-                       <p className="text-xs text-slate-300 leading-relaxed">
+                    <div className="bg-pink-950 p-4 rounded-xl border border-pink-400 min-h-[80px]">
+                       <p className="text-xs text-white leading-relaxed">
                           {selectedPatient.notes || "Tidak ada catatan alergi atau kontraindikasi."}
                        </p>
                     </div>
@@ -220,7 +220,7 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
               </div>
 
               {/* Visit Timeline Navigator */}
-              <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl overflow-x-auto scrollbar-hide">
+              <div className="bg-pink-900 border border-pink-400 p-4 rounded-2xl overflow-x-auto scrollbar-hide">
                 <div className="flex gap-4 min-w-max">
                   {allVisits.map((visit, idx) => (
                     <button 
@@ -229,13 +229,13 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
                       className={`flex flex-col items-center gap-1 p-3 rounded-xl border transition-all ${
                         selectedPatient.id === visit.id 
                         ? 'bg-tcm-primary border-tcm-primary shadow-lg shadow-emerald-900/40' 
-                        : 'bg-slate-950 border-slate-800 hover:border-slate-700'
+                        : 'bg-pink-950 border-pink-400 hover:border-pink-400'
                       }`}
                     >
-                      <span className={`text-[9px] font-black uppercase ${selectedPatient.id === visit.id ? 'text-white' : 'text-slate-500'}`}>
+                      <span className={`text-[9px] font-black uppercase ${selectedPatient.id === visit.id ? 'text-white' : 'text-white'}`}>
                         {idx === 0 ? 'Current' : idx === 1 ? 'Last' : `Visit ${allVisits.length - idx}`}
                       </span>
-                      <span className={`text-xs font-bold ${selectedPatient.id === visit.id ? 'text-white' : 'text-slate-200'}`}>
+                      <span className={`text-xs font-bold ${selectedPatient.id === visit.id ? 'text-white' : 'text-white'}`}>
                         {new Date(visit.timestamp).toLocaleDateString('id-ID', { day: '2-digit', month: 'short' })}
                       </span>
                     </button>
@@ -245,7 +245,7 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
 
               {/* Symptom Frequency & Persistence Analysis */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="lg:col-span-2 bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl">
+                <div className="lg:col-span-2 bg-pink-900 border border-pink-400 p-6 rounded-2xl shadow-xl">
                    <h3 className="text-sm font-black text-amber-400 uppercase tracking-[0.2em] flex items-center gap-2 mb-6">
                       <BarChart3 className="w-4 h-4" /> Chronic Symptom Profile
                    </h3>
@@ -253,12 +253,12 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
                       {symptomFrequency.slice(0, 5).map(([symptom, count]) => (
                         <div key={symptom}>
                            <div className="flex justify-between items-center mb-1.5">
-                              <span className="text-xs font-bold text-slate-200">{symptom}</span>
-                              <span className="text-[10px] text-slate-500 font-black uppercase tracking-widest">
+                              <span className="text-xs font-bold text-white">{symptom}</span>
+                              <span className="text-[10px] text-white font-black uppercase tracking-widest">
                                  {Math.round((count / allVisits.length) * 100)}% Persistence
                               </span>
                            </div>
-                           <div className="h-1.5 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                           <div className="h-1.5 bg-pink-950 rounded-full overflow-hidden border border-pink-400">
                               <div 
                                 className="h-full bg-amber-500 transition-all duration-1000" 
                                 style={{ width: `${(count / allVisits.length) * 100}%` }}
@@ -266,27 +266,27 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
                            </div>
                         </div>
                       ))}
-                      {symptomFrequency.length === 0 && <p className="text-xs text-slate-600 italic">No persistent symptoms recorded.</p>}
+                      {symptomFrequency.length === 0 && <p className="text-xs text-white italic">No persistent symptoms recorded.</p>}
                    </div>
                 </div>
 
-                <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-center items-center text-center">
+                <div className="bg-pink-900 border border-pink-400 p-6 rounded-2xl flex flex-col justify-center items-center text-center">
                    <div className="p-4 bg-indigo-500/10 rounded-full border border-indigo-500/20 mb-4">
                       <Clock className="w-8 h-8 text-indigo-400" />
                    </div>
-                   <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Observation Period</h4>
+                   <h4 className="text-[10px] font-black text-white uppercase tracking-widest mb-1">Observation Period</h4>
                    <p className="text-xl font-black text-white">
                       {allVisits.length > 1 ? (
                         Math.round((allVisits[0].timestamp - allVisits[allVisits.length-1].timestamp) / (1000 * 60 * 60 * 24))
                       ) : 0} Days
                    </p>
-                   <p className="text-[10px] text-slate-600 mt-1 uppercase font-bold">Total care history duration</p>
+                   <p className="text-[10px] text-white mt-1 uppercase font-bold">Total care history duration</p>
                 </div>
               </div>
 
               {/* Detailed Symptom Evolution (vs Previous) */}
               {evolution && (
-                 <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl relative overflow-hidden group">
+                 <div className="bg-pink-900 border border-pink-400 p-6 rounded-2xl shadow-xl relative overflow-hidden group">
                     <div className="absolute top-0 right-0 p-4 opacity-5">
                        <History className="w-20 h-20" />
                     </div>
@@ -297,36 +297,36 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                       <div className="bg-slate-950 p-5 rounded-2xl border border-slate-800 transition-all hover:border-emerald-500/30">
+                       <div className="bg-pink-950 p-5 rounded-2xl border border-pink-400 transition-all hover:border-emerald-500/30">
                           <div className="flex items-center gap-2 text-emerald-400 font-black text-[10px] uppercase mb-4">
                              <CheckCircle2 className="w-4 h-4" /> Stable (Persistent)
                           </div>
                           <div className="flex flex-wrap gap-2">
                              {evolution.persistent.length > 0 ? evolution.persistent.map(s => (
                                <span key={s} className="px-3 py-1 rounded-xl bg-emerald-950/30 text-emerald-400 text-[10px] font-black border border-emerald-900/40">{s}</span>
-                             )) : <span className="text-[10px] text-slate-600 italic">No stable symptoms.</span>}
+                             )) : <span className="text-[10px] text-white italic">No stable symptoms.</span>}
                           </div>
                        </div>
                        
-                       <div className="bg-slate-950 p-5 rounded-2xl border border-slate-800 transition-all hover:border-rose-500/30">
+                       <div className="bg-pink-950 p-5 rounded-2xl border border-pink-400 transition-all hover:border-rose-500/30">
                           <div className="flex items-center gap-2 text-rose-400 font-black text-[10px] uppercase mb-4">
                              <PlusCircle className="w-4 h-4" /> New Manifestations
                           </div>
                           <div className="flex flex-wrap gap-2">
                              {evolution.newSymptoms.length > 0 ? evolution.newSymptoms.map(s => (
                                <span key={s} className="px-3 py-1 rounded-xl bg-rose-950/30 text-rose-400 text-[10px] font-black border border-rose-900/40">{s}</span>
-                             )) : <span className="text-[10px] text-slate-600 italic">No new symptoms.</span>}
+                             )) : <span className="text-[10px] text-white italic">No new symptoms.</span>}
                           </div>
                        </div>
 
-                       <div className="bg-slate-950 p-5 rounded-2xl border border-slate-800 transition-all hover:border-indigo-500/30">
+                       <div className="bg-pink-950 p-5 rounded-2xl border border-pink-400 transition-all hover:border-indigo-500/30">
                           <div className="flex items-center gap-2 text-indigo-400 font-black text-[10px] uppercase mb-4">
                              <MinusCircle className="w-4 h-4" /> Resolved (Success)
                           </div>
                           <div className="flex flex-wrap gap-2">
                              {evolution.resolved.length > 0 ? evolution.resolved.map(s => (
                                <span key={s} className="px-3 py-1 rounded-xl bg-indigo-950/30 text-indigo-400 text-[10px] font-black border border-indigo-900/40">{s}</span>
-                             )) : <span className="text-[10px] text-slate-600 italic">No resolution observed.</span>}
+                             )) : <span className="text-[10px] text-white italic">No resolution observed.</span>}
                           </div>
                        </div>
                     </div>
@@ -335,21 +335,21 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
 
               {/* Diagnostic Snapshot */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div className="bg-slate-900 border border-indigo-500/30 p-6 rounded-2xl shadow-xl">
+                 <div className="bg-pink-900 border border-indigo-500/30 p-6 rounded-2xl shadow-xl">
                     <h3 className="text-sm font-black text-indigo-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                        <Stethoscope className="w-4 h-4" /> Diagnosis Snapshot
                     </h3>
                     <div className="space-y-3">
-                       <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                          <span className="text-[9px] text-slate-500 uppercase font-black block mb-1">Western Biomedical</span>
+                       <div className="bg-pink-950 p-4 rounded-xl border border-pink-400">
+                          <span className="text-[9px] text-white uppercase font-black block mb-1">Western Biomedical</span>
                           <span className="text-lg font-black text-white">{selectedPatient.biomedicalDiagnosis || 'General Wellness'}</span>
                           {selectedPatient.icd10 && (
                              <span className="ml-2 text-[10px] bg-indigo-900/50 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800 font-black">ICD: {selectedPatient.icd10}</span>
                           )}
                        </div>
-                       <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                          <span className="text-[9px] text-slate-500 uppercase font-black block mb-1">Primary Complaint</span>
-                          <p className="text-xs text-slate-300 italic leading-relaxed">"{selectedPatient.complaint}"</p>
+                       <div className="bg-pink-950 p-4 rounded-xl border border-pink-400">
+                          <span className="text-[9px] text-white uppercase font-black block mb-1">Primary Complaint</span>
+                          <p className="text-xs text-white italic leading-relaxed">"{selectedPatient.complaint}"</p>
                        </div>
                     </div>
                  </div>
@@ -367,7 +367,7 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
                              Confidence: {Math.round(selectedPatient.diagnosis.confidence * 100)}%
                           </div>
                        </div>
-                       <p className="text-sm text-slate-300 leading-relaxed font-medium">
+                       <p className="text-sm text-white leading-relaxed font-medium">
                           {selectedPatient.diagnosis.explanation}
                        </p>
                     </div>
@@ -375,31 +375,31 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
               </div>
 
               {/* Physical Markers Section */}
-              <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                 <h3 className="text-sm font-black text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+              <div className="bg-pink-900 border border-pink-400 p-6 rounded-2xl">
+                 <h3 className="text-sm font-black text-white uppercase tracking-widest mb-6 flex items-center gap-2">
                     <Clipboard className="w-4 h-4" /> Physical Exam Markers
                  </h3>
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
                     <div className="space-y-4">
-                       <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                          <span className="block text-[9px] text-slate-500 font-black uppercase mb-2">Subjective Sensation</span>
-                          <p className="text-slate-200 font-medium">Lidah: {selectedPatient.tongue.body_color} Body, {selectedPatient.tongue.coating_quality} {selectedPatient.tongue.coating_color} coat</p>
+                       <div className="bg-pink-950 p-4 rounded-xl border border-pink-400">
+                          <span className="block text-[9px] text-white font-black uppercase mb-2">Subjective Sensation</span>
+                          <p className="text-white font-medium">Lidah: {selectedPatient.tongue.body_color} Body, {selectedPatient.tongue.coating_quality} {selectedPatient.tongue.coating_color} coat</p>
                           <div className="mt-3 flex flex-wrap gap-1.5">
                              {selectedPatient.tongue.special_features?.map(f => (
-                               <span key={f} className="px-2 py-0.5 bg-slate-800 text-slate-400 text-[9px] font-bold rounded border border-slate-700">{f}</span>
+                               <span key={f} className="px-2 py-0.5 bg-pink-800 text-white text-[9px] font-bold rounded border border-pink-400">{f}</span>
                              ))}
                           </div>
                        </div>
                     </div>
                     <div>
-                       <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 h-full flex flex-col justify-center">
-                          <span className="block text-[9px] text-slate-500 font-black uppercase mb-2">Pulse Palpation</span>
+                       <div className="bg-pink-950 p-4 rounded-xl border border-pink-400 h-full flex flex-col justify-center">
+                          <span className="block text-[9px] text-white font-black uppercase mb-2">Pulse Palpation</span>
                           <div className="flex flex-wrap gap-2">
                             {selectedPatient.pulse.qualities?.map(q => (
-                              <span key={q} className="px-3 py-1 bg-slate-800 text-slate-200 text-[10px] font-black rounded-lg border border-slate-700 uppercase tracking-tighter">
+                              <span key={q} className="px-3 py-1 bg-pink-800 text-white text-[10px] font-black rounded-lg border border-pink-400 uppercase tracking-tighter">
                                 {q}
                               </span>
-                            )) || <span className="text-slate-600">N/A</span>}
+                            )) || <span className="text-white">N/A</span>}
                           </div>
                        </div>
                     </div>
@@ -407,14 +407,14 @@ const PatientArchivePanel: React.FC<Props> = ({ onLoadPatient }) => {
               </div>
 
               {/* Interactive Footer */}
-              <div className="flex justify-center py-10 border-t border-slate-900">
+              <div className="flex justify-center py-10 border-t border-pink-400">
                  <button 
                     onClick={() => {
                         if (window.confirm("Restore this diagnostic session to the active CDSS interface?")) {
                             onLoadPatient(selectedPatient);
                         }
                     }}
-                    className="flex items-center gap-3 text-slate-500 hover:text-white transition-all text-[10px] font-black uppercase tracking-[0.3em] group"
+                    className="flex items-center gap-3 text-white hover:text-white transition-all text-[10px] font-black uppercase tracking-[0.3em] group"
                  >
                     <RotateCcw className="w-5 h-5 group-hover:rotate-[-90deg] transition-transform" /> Restore Session Data
                  </button>

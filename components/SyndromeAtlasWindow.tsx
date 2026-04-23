@@ -16,7 +16,7 @@ const elementColors: Record<string, string> = {
   Wood: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
   Fire: "text-rose-400 border-rose-500/30 bg-rose-500/10",
   Earth: "text-amber-400 border-amber-500/30 bg-amber-500/10",
-  Metal: "text-slate-100 border-slate-400/30 bg-slate-400/10",
+  Metal: "text-white border-pink-400 bg-pink-400/10",
   Water: "text-blue-400 border-blue-500/30 bg-blue-500/10",
 };
 
@@ -76,7 +76,7 @@ export const SyndromeAtlasWindow: React.FC<Props> = ({ onSelectSyndrome }) => {
     <button 
       onClick={() => setActiveQuadrant(activeQuadrant === id ? "ALL" : id)}
       className={`flex-1 min-w-[80px] p-3 rounded-xl border flex flex-col items-center justify-center gap-2 transition-all ${
-        activeQuadrant === id ? `${color} border-current ring-1 ring-current` : "bg-slate-900 border-slate-800 text-slate-500 grayscale opacity-60"
+        activeQuadrant === id ? `${color} border-current ring-1 ring-current` : "bg-pink-900 border-pink-400 text-white grayscale opacity-60"
       }`}
     >
       <Icon className="w-5 h-5 shrink-0" />
@@ -85,23 +85,23 @@ export const SyndromeAtlasWindow: React.FC<Props> = ({ onSelectSyndrome }) => {
   );
 
   return (
-    <div className="flex h-full bg-black text-white overflow-hidden animate-fade-in">
+    <div className="flex h-full bg-pink-600 text-white overflow-hidden animate-fade-in">
       
       {/* LEFT: MASTER LIST & DASHBOARD */}
-      <aside className="w-full md:w-[400px] flex flex-col border-r border-slate-800 bg-slate-900/20">
-         <div className="p-6 border-b border-slate-800">
+      <aside className="w-full md:w-[400px] flex flex-col border-r border-pink-400 bg-pink-900/20">
+         <div className="p-6 border-b border-pink-400">
             <h2 className="text-xl font-black text-emerald-400 flex items-center gap-3 mb-4">
               <Layers className="w-6 h-6" /> Syndrome Atlas
             </h2>
             
             <div className="relative mb-6">
-               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white" />
                <input 
                   type="text"
                   placeholder="Cari pola (Ind/Eng)..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl py-2.5 pl-10 pr-4 text-sm outline-none focus:border-emerald-500 transition-all"
+                  className="w-full bg-pink-950 border border-pink-400 rounded-xl py-2.5 pl-10 pr-4 text-sm outline-none focus:border-emerald-500 transition-all"
                />
             </div>
 
@@ -120,7 +120,7 @@ export const SyndromeAtlasWindow: React.FC<Props> = ({ onSelectSyndrome }) => {
                   key={el}
                   onClick={() => setActiveElement(el)}
                   className={`px-3 py-1 rounded-full text-[9px] font-bold uppercase transition-all border ${
-                    activeElement === el ? "bg-emerald-500 border-emerald-400 text-black" : "bg-slate-800 border-slate-700 text-slate-400"
+                    activeElement === el ? "bg-emerald-500 border-emerald-400 text-pink-100" : "bg-pink-800 border-pink-400 text-white"
                   }`}
                  >
                    {el}
@@ -135,27 +135,27 @@ export const SyndromeAtlasWindow: React.FC<Props> = ({ onSelectSyndrome }) => {
                 key={s.id}
                 onClick={() => setSelectedId(s.id)}
                 className={`w-full text-left p-4 rounded-2xl transition-all border group ${
-                  selected?.id === s.id ? "bg-slate-800 border-emerald-500/50 shadow-lg" : "bg-slate-900/40 border-slate-800 hover:border-slate-700"
+                  selected?.id === s.id ? "bg-pink-800 border-emerald-500/50 shadow-lg" : "bg-pink-900/40 border-pink-400 hover:border-pink-400"
                 }`}
                >
                  <div className="flex justify-between items-start mb-1">
-                    <span className="font-bold text-slate-100 group-hover:text-emerald-400 transition-colors">{s.name_id}</span>
-                    <span className={`text-[8px] font-black uppercase px-2 py-0.5 rounded border ${elementColors[s.wuxing_element || ''] || 'text-slate-500'}`}>
+                    <span className="font-bold text-white group-hover:text-emerald-400 transition-colors">{s.name_id}</span>
+                    <span className={`text-[8px] font-black uppercase px-2 py-0.5 rounded border ${elementColors[s.wuxing_element || ''] || 'text-white'}`}>
                        {s.wuxing_element}
                     </span>
                  </div>
                  <div className="flex justify-between items-center mb-2">
-                    <p className="text-[10px] text-slate-500 italic truncate flex-1">{s.name_en}</p>
+                    <p className="text-[10px] text-white italic truncate flex-1">{s.name_en}</p>
                  </div>
                  <div className="flex gap-1">
                     {(s.primary_organs || []).map(org => (
-                      <span key={org} className="text-[8px] px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded-md border border-slate-800">{org}</span>
+                      <span key={org} className="text-[8px] px-1.5 py-0.5 bg-pink-950 text-white rounded-md border border-pink-400">{org}</span>
                     ))}
                  </div>
                </button>
             ))}
             {filtered.length === 0 && (
-               <div className="text-center py-20 text-slate-600">
+               <div className="text-center py-20 text-white">
                   <AlertCircle className="w-10 h-10 mx-auto mb-3 opacity-20" />
                   <p className="text-xs font-bold uppercase tracking-widest">No patterns found</p>
                </div>
@@ -167,35 +167,35 @@ export const SyndromeAtlasWindow: React.FC<Props> = ({ onSelectSyndrome }) => {
       <main className="flex-1 overflow-y-auto p-6 md:p-12 scroll-smooth scrollbar-hide">
         {selected ? (
           <div className="max-w-4xl mx-auto space-y-12 animate-slide-in-right pb-24">
-             <div className="flex flex-col md:flex-row justify-between items-start gap-6 border-b border-slate-900 pb-8">
+             <div className="flex flex-col md:flex-row justify-between items-start gap-6 border-b border-pink-400 pb-8">
                 <div className="flex-1">
                    <div className="flex items-center gap-4 mb-2">
                       <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">{selected.name_id}</h1>
                    </div>
                    <div className="flex flex-wrap items-center gap-3 mb-4">
-                      <span className="text-lg text-slate-500 font-medium italic">{selected.name_en}</span>
+                      <span className="text-lg text-white font-medium italic">{selected.name_en}</span>
                       {selected.name_zh && (
                         <>
-                          <span className="h-1.5 w-1.5 rounded-full bg-slate-800"></span>
-                          <span className="text-lg text-slate-400 font-medium">{selected.name_zh}</span>
+                          <span className="h-1.5 w-1.5 rounded-full bg-pink-800"></span>
+                          <span className="text-lg text-white font-medium">{selected.name_zh}</span>
                         </>
                       )}
                       {selected.name_pinyin && (
                         <>
-                          <span className="h-1.5 w-1.5 rounded-full bg-slate-800"></span>
-                          <span className="text-sm text-slate-500">{selected.name_pinyin}</span>
+                          <span className="h-1.5 w-1.5 rounded-full bg-pink-800"></span>
+                          <span className="text-sm text-white">{selected.name_pinyin}</span>
                         </>
                       )}
                    </div>
                    <div className="flex flex-wrap items-center gap-3">
                       <span className="text-[10px] font-black uppercase tracking-widest text-emerald-50 bg-emerald-900/30 px-3 py-1 rounded-full border border-emerald-500/20">{selected.pattern_type.replace(/_/g, ' ')}</span>
-                      <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border ${elementColors[selected.wuxing_element || ''] || 'text-slate-500 bg-slate-900 border-slate-800'}`}>{selected.wuxing_element}</span>
+                      <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border ${elementColors[selected.wuxing_element || ''] || 'text-white bg-pink-900 border-pink-400'}`}>{selected.wuxing_element}</span>
                       {selected.primary_organs && selected.primary_organs.length > 0 && (
                         <>
-                          <span className="h-1.5 w-1.5 rounded-full bg-slate-800"></span>
+                          <span className="h-1.5 w-1.5 rounded-full bg-pink-800"></span>
                           <div className="flex gap-1">
                             {selected.primary_organs.map(org => (
-                              <span key={org} className="text-[10px] font-black uppercase tracking-widest text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">{org}</span>
+                              <span key={org} className="text-[10px] font-black uppercase tracking-widest text-white bg-pink-900 px-3 py-1 rounded-full border border-pink-400">{org}</span>
                             ))}
                           </div>
                         </>
@@ -213,33 +213,33 @@ export const SyndromeAtlasWindow: React.FC<Props> = ({ onSelectSyndrome }) => {
              </div>
 
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <section className="bg-slate-900/30 p-8 rounded-3xl border border-slate-800 shadow-xl">
-                   <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+                <section className="bg-pink-900/30 p-8 rounded-3xl border border-pink-400 shadow-xl">
+                   <h3 className="text-xs font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
                      <Thermometer className="w-4 h-4" /> Clinical Signs
                    </h3>
                    <ul className="space-y-3">
                       {(selected.clinical_manifestations || []).map((m, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
+                        <li key={i} className="flex items-start gap-3 text-sm text-white">
                            <div className="w-1 h-4 bg-emerald-500/50 rounded-full shrink-0 mt-0.5" />
                            {m}
                         </li>
                       ))}
                    </ul>
                    <div className="mt-8 grid grid-cols-2 gap-4">
-                      <div className="p-3 bg-slate-950 rounded-2xl border border-slate-800">
-                         <span className="text-[9px] font-black text-slate-600 uppercase block mb-1">Tongue</span>
-                         <p className="text-xs text-slate-300 font-bold">{(selected.tongue || []).join(' • ') || 'N/A'}</p>
+                      <div className="p-3 bg-pink-950 rounded-2xl border border-pink-400">
+                         <span className="text-[9px] font-black text-white uppercase block mb-1">Tongue</span>
+                         <p className="text-xs text-white font-bold">{(selected.tongue || []).join(' • ') || 'N/A'}</p>
                       </div>
-                      <div className="p-3 bg-slate-950 rounded-2xl border border-slate-800">
-                         <span className="text-[9px] font-black text-slate-600 uppercase block mb-1">Pulse</span>
-                         <p className="text-xs text-slate-300 font-bold">{(selected.pulse || []).join(' • ') || 'N/A'}</p>
+                      <div className="p-3 bg-pink-950 rounded-2xl border border-pink-400">
+                         <span className="text-[9px] font-black text-white uppercase block mb-1">Pulse</span>
+                         <p className="text-xs text-white font-bold">{(selected.pulse || []).join(' • ') || 'N/A'}</p>
                       </div>
                    </div>
                 </section>
 
                 <div className="space-y-8">
-                   <section className="bg-slate-900/30 p-8 rounded-3xl border border-slate-800 shadow-xl">
-                      <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+                   <section className="bg-pink-900/30 p-8 rounded-3xl border border-pink-400 shadow-xl">
+                      <h3 className="text-xs font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
                         <BrainCircuit className="w-4 h-4" /> Treatment Logic
                       </h3>
                       <div className="space-y-4">
@@ -249,11 +249,11 @@ export const SyndromeAtlasWindow: React.FC<Props> = ({ onSelectSyndrome }) => {
                            </div>
                          ))}
                       </div>
-                      <div className="mt-8 border-t border-slate-800 pt-6">
-                         <span className="text-[10px] font-black text-slate-600 uppercase mb-4 block">Key Points</span>
+                      <div className="mt-8 border-t border-pink-400 pt-6">
+                         <span className="text-[10px] font-black text-white uppercase mb-4 block">Key Points</span>
                          <div className="flex flex-wrap gap-2">
                             {(selected.acupuncture_points || []).map((pt: any) => (
-                               <span key={pt} className="px-3 py-1.5 bg-slate-950 text-emerald-400 rounded-xl border border-emerald-500/30 text-xs font-black">{pt}</span>
+                               <span key={pt} className="px-3 py-1.5 bg-pink-950 text-emerald-400 rounded-xl border border-emerald-500/30 text-xs font-black">{pt}</span>
                             ))}
                          </div>
                       </div>
@@ -307,14 +307,14 @@ export const SyndromeAtlasWindow: React.FC<Props> = ({ onSelectSyndrome }) => {
                 </div>
              </div>
              
-             <div className="pt-20 border-t border-slate-900 text-center">
-                <p className="text-[10px] text-slate-700 uppercase tracking-[0.5em] font-mono">
+             <div className="pt-20 border-t border-pink-400 text-center">
+                <p className="text-[10px] text-white uppercase tracking-[0.5em] font-mono">
                    Syndrome Atlas Database v{TCM_DB.metadata.version} • Powered by TCM WuXing Engine
                 </p>
              </div>
           </div>
         ) : (
-          <div className="h-full flex items-center justify-center text-slate-800">
+          <div className="h-full flex items-center justify-center text-white">
              <Grid className="w-20 h-20 opacity-5" />
           </div>
         )}

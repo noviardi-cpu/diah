@@ -10,11 +10,11 @@ interface Props {
 const LanguageSelector: React.FC<Props> = ({ selected, onChange }) => {
   return (
     <div className="relative inline-flex items-center">
-      <Globe className="w-4 h-4 absolute left-3 text-slate-400 pointer-events-none" />
+      <Globe className="w-4 h-4 absolute left-3 text-white pointer-events-none" />
       <select
         value={selected}
         onChange={(e) => onChange(e.target.value as Language)}
-        className="appearance-none bg-slate-800 text-slate-200 text-sm pl-9 pr-8 py-2 rounded-lg border border-slate-700 hover:border-tcm-primary focus:outline-none focus:border-tcm-primary transition-colors cursor-pointer"
+        className="appearance-none bg-pink-800 text-white text-sm pl-9 pr-8 py-2 rounded-lg border border-pink-400 hover:border-tcm-primary focus:outline-none focus:border-tcm-primary transition-colors cursor-pointer"
       >
         {Object.values(Language).map((lang) => (
           <option key={lang} value={lang}>
@@ -22,7 +22,7 @@ const LanguageSelector: React.FC<Props> = ({ selected, onChange }) => {
           </option>
         ))}
       </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
         </svg>

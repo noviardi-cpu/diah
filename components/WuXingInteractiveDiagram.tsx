@@ -126,8 +126,8 @@ export const WuXingInteractiveDiagram: React.FC<Props> = ({
   };
 
   return (
-    <div className={`bg-slate-950 flex flex-col h-full overflow-hidden ${className || ''}`}>
-      <div className="relative bg-black flex items-center justify-center p-6 flex-1">
+    <div className={`bg-pink-950 flex flex-col h-full overflow-hidden ${className || ''}`}>
+      <div className="relative bg-pink-600 flex items-center justify-center p-6 flex-1">
         <svg viewBox="0 0 100 100" className="w-full h-full max-h-[85vh]">
           {/* Sheng Cycle */}
           {renderConnection('wood', 'fire', 'Sheng')}
@@ -178,10 +178,10 @@ export const WuXingInteractiveDiagram: React.FC<Props> = ({
           })}
         </svg>
 
-        <div className="absolute bottom-4 left-4 bg-slate-900/90 border border-slate-800 p-3 rounded-xl text-[8px] font-black uppercase tracking-widest space-y-2">
+        <div className="absolute bottom-4 left-4 bg-pink-900/90 border border-pink-400 p-3 rounded-xl text-[8px] font-black uppercase tracking-widest space-y-2">
            {isPathologyActive ? (
              <>
-               <div className="text-indigo-400 mb-1 border-b border-slate-800 pb-1">Pathology Focus</div>
+               <div className="text-indigo-400 mb-1 border-b border-pink-400 pb-1">Pathology Focus</div>
                <div className="flex items-center gap-2">
                   <div className="w-4 h-1 bg-red-600 shadow-[0_0_5px_rgba(239,68,68,0.8)]"></div> 
                   Menindas (Cheng)

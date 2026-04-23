@@ -38,7 +38,7 @@ const elements = [
   },
   { 
     name: 'metal', display: 'Metal (Logam)', 
-    color: 'text-slate-100', bgColor: 'bg-slate-400/10', borderColor: 'border-slate-300/50', shadowColor: 'shadow-slate-500/50',
+    color: 'text-white', bgColor: 'bg-pink-400/10', borderColor: 'border-pink-400', shadowColor: 'shadow-slate-500/50',
     keywords: ['Lung', 'Large Intestine', 'Metal', 'Paru', 'Usus Besar'],
     organs: ['Lung', 'Large Intestine'],
     tagline: 'Respirasi & Pertahanan'
@@ -123,13 +123,13 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
 
   const OrganEncyclopedia = () => (
     <div className="mt-8 pb-32 space-y-12 animate-fade-in overflow-visible">
-      <div className="flex items-center gap-4 border-b border-slate-800 pb-6">
+      <div className="flex items-center gap-4 border-b border-pink-400 pb-6">
         <div className="p-4 bg-indigo-500/10 rounded-2xl border border-indigo-500/20 shadow-xl">
           <BookOpen className="w-8 h-8 text-indigo-400" />
         </div>
         <div>
           <h2 className="text-3xl font-black text-white uppercase tracking-tighter">Organ Encyclopedia</h2>
-          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em]">Comprehensive Clinical Reference</p>
+          <p className="text-[10px] text-white font-bold uppercase tracking-[0.3em]">Comprehensive Clinical Reference</p>
         </div>
       </div>
 
@@ -140,7 +140,7 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
           const el = elements.find(e => e.name.toLowerCase() === org.element.toLowerCase());
 
           return (
-            <div key={orgName} className={`bg-slate-900/60 border-t-4 ${el?.borderColor} rounded-3xl p-8 shadow-2xl transition-all hover:-translate-y-2 group relative overflow-hidden backdrop-blur-md`}>
+            <div key={orgName} className={`bg-pink-900/60 border-t-4 ${el?.borderColor} rounded-3xl p-8 shadow-2xl transition-all hover:-translate-y-2 group relative overflow-hidden backdrop-blur-md`}>
               <div className="absolute top-0 right-0 w-24 h-24 opacity-5 pointer-events-none -mr-4 -mt-4">
                 <Activity className="w-full h-full" />
               </div>
@@ -157,19 +157,19 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
                    {org.name === 'Spleen' && <Mountain className="w-6 h-6 text-amber-400" />}
                    {org.name === 'Kidney' && <Waves className="w-6 h-6 text-blue-400" />}
                    {org.name === 'Heart' && <Heart className="w-6 h-6 text-rose-400" />}
-                   {org.name === 'Lung' && <Wind className="w-6 h-6 text-slate-200" />}
+                   {org.name === 'Lung' && <Wind className="w-6 h-6 text-white" />}
                 </div>
               </div>
 
               <div className="space-y-8">
                 <div>
-                  <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-4 flex items-center gap-2">
+                  <span className="text-[10px] font-black text-white uppercase tracking-widest block mb-4 flex items-center gap-2">
                     <Target className="w-3 h-3 text-tcm-primary" /> Core Functions
                   </span>
                   <ul className="space-y-3">
                     {(org.main_functions || []).map((fn, idx) => (
-                      <li key={idx} className="text-sm text-slate-300 leading-relaxed flex items-start gap-3">
-                        <div className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0"></div>
+                      <li key={idx} className="text-sm text-white leading-relaxed flex items-start gap-3">
+                        <div className="mt-2 w-1.5 h-1.5 rounded-full bg-pink-700 shrink-0"></div>
                         <span>{fn}</span>
                       </li>
                     ))}
@@ -177,37 +177,37 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                   <div className="bg-slate-950/50 p-4 rounded-2xl border border-slate-800">
-                      <span className="text-[9px] font-black text-slate-600 uppercase block mb-2">Primary Emotion</span>
+                   <div className="bg-pink-950/50 p-4 rounded-2xl border border-pink-400">
+                      <span className="text-[9px] font-black text-white uppercase block mb-2">Primary Emotion</span>
                       <div className="flex items-center gap-2">
                          <Smile className="w-3 h-3 text-amber-500" />
-                         <span className="text-xs font-black text-slate-200 uppercase">{org.emotion}</span>
+                         <span className="text-xs font-black text-white uppercase">{org.emotion}</span>
                       </div>
                    </div>
-                   <div className="bg-slate-950/50 p-4 rounded-2xl border border-slate-800">
-                      <span className="text-[9px] font-black text-slate-600 uppercase block mb-2">Ethereal Spirit</span>
-                      <span className="text-xs font-black text-slate-200 uppercase tracking-widest">
+                   <div className="bg-pink-950/50 p-4 rounded-2xl border border-pink-400">
+                      <span className="text-[9px] font-black text-white uppercase block mb-2">Ethereal Spirit</span>
+                      <span className="text-xs font-black text-white uppercase tracking-widest">
                         {org.name === 'Liver' ? 'Hun' : org.name === 'Heart' ? 'Shen' : org.name === 'Spleen' ? 'Yi' : org.name === 'Lung' ? 'Po' : 'Zhi'}
                       </span>
                    </div>
                 </div>
 
-                <div className="pt-6 border-t border-slate-800 grid grid-cols-2 gap-y-4">
+                <div className="pt-6 border-t border-pink-400 grid grid-cols-2 gap-y-4">
                    <div>
-                      <span className="text-[8px] font-black text-slate-600 uppercase block tracking-widest">Sense Organ</span>
-                      <span className="text-xs font-bold text-slate-400">{org.sense_organ}</span>
+                      <span className="text-[8px] font-black text-white uppercase block tracking-widest">Sense Organ</span>
+                      <span className="text-xs font-bold text-white">{org.sense_organ}</span>
                    </div>
                    <div>
-                      <span className="text-[8px] font-black text-slate-600 uppercase block tracking-widest">Controls</span>
-                      <span className="text-xs font-bold text-slate-400">{org.tissues}</span>
+                      <span className="text-[8px] font-black text-white uppercase block tracking-widest">Controls</span>
+                      <span className="text-xs font-bold text-white">{org.tissues}</span>
                    </div>
                    <div>
-                      <span className="text-[8px] font-black text-slate-600 uppercase block tracking-widest">Classic Flavor</span>
-                      <span className="text-xs font-bold text-slate-400">{org.flavor}</span>
+                      <span className="text-[8px] font-black text-white uppercase block tracking-widest">Classic Flavor</span>
+                      <span className="text-xs font-bold text-white">{org.flavor}</span>
                    </div>
                    <div className="flex items-center gap-2">
-                      <Clock className="w-3.5 h-3.5 text-slate-600" />
-                      <span className="text-xs font-bold text-slate-400 tracking-tighter">{org.time_of_day}</span>
+                      <Clock className="w-3.5 h-3.5 text-white" />
+                      <span className="text-xs font-bold text-white tracking-tighter">{org.time_of_day}</span>
                    </div>
                 </div>
               </div>
@@ -220,10 +220,10 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
 
   if (isLoading) {
     return (
-      <div className="h-full flex flex-col items-center justify-center bg-black text-white p-6 animate-fade-in">
+      <div className="h-full flex flex-col items-center justify-center bg-pink-600 text-white p-6 animate-fade-in">
         <Loader2 className="w-16 h-16 text-emerald-500 animate-spin mb-6" />
         <h3 className="text-2xl font-black text-emerald-400 tracking-widest uppercase">Wu Xing Engine</h3>
-        <p className="text-slate-600 text-[10px] mt-2 font-mono uppercase tracking-[0.3em]">Architecting Elemental Relationships...</p>
+        <p className="text-white text-[10px] mt-2 font-mono uppercase tracking-[0.3em]">Architecting Elemental Relationships...</p>
       </div>
     );
   }
@@ -233,27 +233,27 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
     : null;
 
   return (
-    <div className="h-full bg-black text-white flex flex-col md:flex-row overflow-hidden font-sans">
+    <div className="h-full bg-pink-600 text-white flex flex-col md:flex-row overflow-hidden font-sans">
       
       {/* LEFT MAP BAR */}
-      <div className="w-full md:w-[45%] lg:w-[420px] border-r border-slate-800 bg-slate-900/40 flex flex-col h-[500px] md:h-full shrink-0 shadow-2xl overflow-visible relative">
-         <div className="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/90 backdrop-blur-md z-10">
+      <div className="w-full md:w-[45%] lg:w-[420px] border-r border-pink-400 bg-pink-900/40 flex flex-col h-[500px] md:h-full shrink-0 shadow-2xl overflow-visible relative">
+         <div className="p-6 border-b border-pink-400 flex justify-between items-center bg-pink-900/90 backdrop-blur-md z-10">
             <div>
                <h3 className="text-xl font-black text-emerald-400 flex items-center gap-2">
                  <MapIcon className="w-5 h-5" /> Elemental Map
                </h3>
-               <p className="text-[10px] text-slate-500 uppercase font-black tracking-[0.2em]">Five Elements Cycle</p>
+               <p className="text-[10px] text-white uppercase font-black tracking-[0.2em]">Five Elements Cycle</p>
             </div>
             <div className="flex gap-2">
               <button 
                 onClick={() => { setShowEncyclopedia(!showEncyclopedia); clearAllFilters(); }} 
-                className={`p-3 rounded-2xl border transition-all shadow-lg ${showEncyclopedia ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-white'}`}
+                className={`p-3 rounded-2xl border transition-all shadow-lg ${showEncyclopedia ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-pink-800 border-pink-400 text-white hover:text-white'}`}
                 title="Toggle Encyclopedia"
               >
                 <BookOpen className="w-4 h-4" />
               </button>
               {(diagramSelection || organFilter || searchQuery) && (
-                <button onClick={clearAllFilters} className="text-[10px] font-black text-slate-400 hover:text-white flex items-center gap-2 bg-slate-800 px-4 py-2 rounded-xl border border-slate-700 transition-all shadow-md">
+                <button onClick={clearAllFilters} className="text-[10px] font-black text-white hover:text-white flex items-center gap-2 bg-pink-800 px-4 py-2 rounded-xl border border-pink-400 transition-all shadow-md">
                     <X className="w-3 h-3" /> RESET
                 </button>
               )}
@@ -270,7 +270,7 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
          </div>
 
          {/* Organ Fast-Switch Navigation */}
-         <div className="p-6 border-t border-slate-800 bg-slate-900/50 overflow-x-auto scrollbar-hide shrink-0 z-10">
+         <div className="p-6 border-t border-pink-400 bg-pink-900/50 overflow-x-auto scrollbar-hide shrink-0 z-10">
             <div className="flex gap-2 min-w-max">
                {['Liver', 'Heart', 'Spleen', 'Lung', 'Kidney'].map(org => (
                  <button 
@@ -279,7 +279,7 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
                     className={`px-4 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border shadow-md ${
                         organFilter === org 
                         ? 'bg-emerald-600 border-emerald-400 text-white shadow-emerald-900/40' 
-                        : 'bg-slate-800 border-slate-700 text-slate-500 hover:border-slate-500'
+                        : 'bg-pink-800 border-pink-400 text-white hover:border-pink-400'
                     }`}
                  >
                     {org}
@@ -290,10 +290,10 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
       </div>
 
       {/* RIGHT CONTENT AREA */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto bg-black scroll-smooth scrollbar-hide relative">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto bg-pink-600 scroll-smooth scrollbar-hide relative">
          
          {/* Adaptive Search & Header */}
-         <div className="sticky top-0 z-20 bg-black/90 backdrop-blur-md border-b border-slate-900 p-8 shadow-xl">
+         <div className="sticky top-0 z-20 bg-pink-600/90 backdrop-blur-md border-b border-pink-400 p-8 shadow-xl">
             <div className="max-w-5xl mx-auto">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                     <div className="flex-1">
@@ -303,13 +303,13 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
                             ) : diagramSelection ? (
                                 <>
                                     <span className={activeElementData?.color}>{diagramSelection}</span> 
-                                    <span className="text-slate-700"> Patterns</span>
+                                    <span className="text-white"> Patterns</span>
                                 </>
                             ) : (
                                 <>Syndrome <span className="text-emerald-500">Master</span></>
                             )}
                         </h2>
-                        <p className="text-xs text-slate-500 font-bold uppercase tracking-[0.2em] flex items-center gap-3">
+                        <p className="text-xs text-white font-bold uppercase tracking-[0.2em] flex items-center gap-3">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                             {showEncyclopedia ? 'Clinical Reference & Physiology' : organFilter ? `Focusing on ${organFilter} Pathology` : 'Multi-Elemental Pattern Differentiation'}
                         </p>
@@ -317,13 +317,13 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
                     
                     {!showEncyclopedia && (
                       <div className="relative w-full md:w-80 group">
-                          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 group-focus-within:text-emerald-400 transition-colors" />
+                          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white group-focus-within:text-emerald-400 transition-colors" />
                           <input 
                               type="text"
                               placeholder="Search clinical patterns..."
                               value={searchQuery}
                               onChange={(e) => setSearchQuery(e.target.value)}
-                              className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl py-4 pl-12 pr-4 text-sm text-slate-200 focus:border-emerald-500 focus:bg-slate-900 outline-none transition-all shadow-inner"
+                              className="w-full bg-pink-900/50 border border-pink-400 rounded-2xl py-4 pl-12 pr-4 text-sm text-white focus:border-emerald-500 focus:bg-pink-900 outline-none transition-all shadow-inner"
                           />
                       </div>
                     )}
@@ -341,13 +341,13 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
                   
                   return (
                       <div key={el.name} className="animate-fade-in scroll-mt-32">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 border-b border-slate-900 pb-6 gap-6">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 border-b border-pink-400 pb-6 gap-6">
                             <div>
                                 <h3 className={`text-3xl font-black uppercase tracking-[0.3em] ${el.color}`}>{el.display}</h3>
-                                <p className="text-[10px] text-slate-600 font-black mt-2 uppercase tracking-widest leading-none">{el.tagline}</p>
+                                <p className="text-[10px] text-white font-black mt-2 uppercase tracking-widest leading-none">{el.tagline}</p>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="text-[10px] bg-slate-900/50 text-slate-500 px-4 py-2 rounded-2xl border border-slate-800 font-black uppercase tracking-widest flex items-center gap-3">
+                                <span className="text-[10px] bg-pink-900/50 text-white px-4 py-2 rounded-2xl border border-pink-400 font-black uppercase tracking-widest flex items-center gap-3">
                                     <BookOpen className="w-3.5 h-3.5" /> {syndromes.length} clinical patterns
                                 </span>
                             </div>
@@ -358,33 +358,33 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
                             <div 
                                 key={s.id}
                                 onClick={() => onSelectSyndrome?.(s.id)}
-                                className={`bg-slate-900/40 hover:bg-slate-800/60 p-8 rounded-[2rem] border border-slate-800/60 hover:border-white/20 cursor-pointer transition-all group flex flex-col gap-6 shadow-2xl active:scale-[0.98] ${el.borderColor} backdrop-blur-md`}
+                                className={`bg-pink-900/40 hover:bg-pink-800/60 p-8 rounded-[2rem] border border-pink-400 hover:border-white/20 cursor-pointer transition-all group flex flex-col gap-6 shadow-2xl active:scale-[0.98] ${el.borderColor} backdrop-blur-md`}
                             >
                                 <div className="flex items-start justify-between">
-                                    <div className={`p-5 rounded-2xl bg-black border border-slate-800 shadow-inner group-hover:scale-110 transition-transform ${el.color}`}>
+                                    <div className={`p-5 rounded-2xl bg-pink-600 border border-pink-400 shadow-inner group-hover:scale-110 transition-transform ${el.color}`}>
                                         <Target className="w-6 h-6" />
                                     </div>
                                     <div className="flex gap-2">
                                         {(s.primary_organs || []).slice(0, 2).map(org => (
-                                            <span key={org} className="px-3 py-1 rounded-xl bg-slate-900/80 text-[9px] text-slate-500 font-black uppercase tracking-[0.1em] border border-slate-800">{org}</span>
+                                            <span key={org} className="px-3 py-1 rounded-xl bg-pink-900/80 text-[9px] text-white font-black uppercase tracking-[0.1em] border border-pink-400">{org}</span>
                                         ))}
                                     </div>
                                 </div>
                                 
                                 <div className="flex-1 min-w-0">
                                     <h4 className="font-black text-white text-xl leading-tight group-hover:text-tcm-primary transition-colors mb-2 uppercase tracking-tighter">{s.name_id}</h4>
-                                    <p className="text-slate-500 text-xs italic mb-6 truncate font-medium">{s.name_en}</p>
+                                    <p className="text-white text-xs italic mb-6 truncate font-medium">{s.name_en}</p>
                                     
                                     {s.key_symptoms && s.key_symptoms.length > 0 && (
                                         <div className="flex flex-wrap gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
                                             {(s.key_symptoms || []).slice(0, 4).map(ks => (
-                                                <span key={ks} className="px-2.5 py-1 bg-slate-950 text-[9px] text-slate-400 rounded-lg border border-slate-800 uppercase font-bold tracking-tighter">{ks}</span>
+                                                <span key={ks} className="px-2.5 py-1 bg-pink-950 text-[9px] text-white rounded-lg border border-pink-400 uppercase font-bold tracking-tighter">{ks}</span>
                                             ))}
                                         </div>
                                     )}
                                 </div>
                                 
-                                <div className="pt-6 border-t border-slate-800/50 flex items-center justify-between text-slate-600 group-hover:text-white transition-colors">
+                                <div className="pt-6 border-t border-pink-400 flex items-center justify-between text-white group-hover:text-white transition-colors">
                                     <span className="text-[10px] font-black uppercase tracking-[0.2em]">Detailed Differentiation</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform" />
                                 </div>
@@ -392,10 +392,10 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
                             ))}
 
                             {syndromes.length === 0 && (
-                            <div className="col-span-full py-28 px-10 border-2 border-dashed border-slate-900 rounded-[2.5rem] flex flex-col items-center justify-center text-slate-700">
+                            <div className="col-span-full py-28 px-10 border-2 border-dashed border-pink-400 rounded-[2.5rem] flex flex-col items-center justify-center text-white">
                                 <Info className="w-16 h-16 mb-6 opacity-10" />
                                 <p className="text-sm font-black uppercase tracking-[0.2em]">No clinical patterns found</p>
-                                <p className="text-[10px] mt-2 text-slate-800 font-bold uppercase">Try resetting filters or adjusting your search</p>
+                                <p className="text-[10px] mt-2 text-white font-bold uppercase">Try resetting filters or adjusting your search</p>
                             </div>
                             )}
                         </div>
@@ -405,11 +405,11 @@ const WuXingMasterPanel: React.FC<Props> = ({ onSelectSyndrome, isLoading = fals
               </div>
             )}
 
-            <div className="mt-32 py-20 border-t border-slate-900 text-center">
-                <p className="text-[10px] text-slate-800 uppercase tracking-[0.6em] font-black font-mono">
+            <div className="mt-32 py-20 border-t border-pink-400 text-center">
+                <p className="text-[10px] text-white uppercase tracking-[0.6em] font-black font-mono">
                     TCM WU XING MASTER CDSS PRO v{TCM_DB.metadata.version}
                 </p>
-                <div className="mt-4 flex justify-center gap-6 text-[9px] text-slate-900 font-black uppercase tracking-widest">
+                <div className="mt-4 flex justify-center gap-6 text-[9px] text-white font-black uppercase tracking-widest">
                   <span>Elemental Mapping</span>
                   <span>•</span>
                   <span>Pattern Differentiation</span>
